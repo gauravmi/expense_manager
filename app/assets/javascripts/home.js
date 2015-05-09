@@ -26,8 +26,20 @@ var Expense = {
 	},
 	bindMoneyIcon: function(){
 		var self = this;
-		$('.amount').click(function(event){
-			$(event.target).closest('.btn').addClass('btn-info');			
+		$('.amount').data('counter', 0).click(function(event){			
+			var counter = $(this).data('counter');
+        	$(this).data('counter', counter + 1);        	
+			$(event.target).closest('.btn').addClass('btn-info');
+			if(parseInt($(this).data('counter'))>1){ 
+				var b = $(event.target).closest('.btn').find('.badge');
+				if(b.length > 0){
+					b.text(parseInt($(this).data('counter')));
+				}
+				else{
+					var badge = $('<span class="badge">'+parseInt($(this).data('counter'))+'</span>');
+					$(event.target).closest('.btn').append(badge)
+				}
+			}
 			self.totalExpense = self.totalExpense+parseInt($(event.target).text());
 			key = $(event.target).text();
 			if(self.money_access_count[key]){
