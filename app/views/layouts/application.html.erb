@@ -7,13 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= flash[:notice] if flash[:notice].nil?%>
-<% if (current_page?(login_new_path)|| current_page?(root_path))%>
-    <%= render :partial => 'login/login_layout' %>
-<% else %>
-    <%= render :partial => 'home/header' %>
-<% end %>
-<%= yield %>
 
+<%= render :partial=>'home/header'%>
+<%= yield %>
 </body>
 </html>

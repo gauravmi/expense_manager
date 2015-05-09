@@ -1,9 +1,9 @@
 class LoginController < ApplicationController
-  def new
+  def new    
   end
 
   def create
-    user = validate params[:login][:password], params[:login][:username]
+    user = validate(params[:login][:password], params[:login][:username])    
     if user
       session[:user_id] = user.id
       respond_to do |format|
