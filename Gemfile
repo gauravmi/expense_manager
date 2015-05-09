@@ -28,6 +28,7 @@ gem 'd3-rails'
 gem 'c3-rails'
 gem 'pry'
 gem 'bootstrap_form'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
