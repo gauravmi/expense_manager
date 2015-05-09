@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
 	def index
-		@amount = Amount.new
 	end
 	
 	def create_amount

@@ -7,38 +7,11 @@
 
 select amount 
 <button id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-
-
-
-
-<div class="modal fade" id="add-money-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add new amount</h4>
-      </div>
-      <div class="modal-body">
-		<%= form_for @amount do |f| %>
-		  <%= f.label :enter_new_amount %>:
-		  <%= f.text_field :amount %><br />
-		  <div class="modal-footer">
-	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        	<button type="submit" class="btn btn-default">Submit</button>
-	      </div>
-		<% end %>	        
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+<%= render :partial=>'add_amount_form'%>
 <br>
-select category <button id='add-category' class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+select category <button id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+<%= render :partial=>'add_sub_category_form'%>
 <br>
 graph 
 </body>
