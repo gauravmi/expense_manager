@@ -8,19 +8,20 @@
 	
 
 	<%= bootstrap_form_for(:expense, url: expense_index_path, method: 'Post',:html=> {:id => 'main-expense-form'}) do |f| %>
-		<p class="text-success"></p>
-		<div class='expense-header'>
-			<span class="title"><abbr title=""> <h3><small>Add amount</small></h3></abbr></span>
-			<span class="subtitle input-sm" id="display-amount"><small></small></span>		
+		<p class="text-success"></p>		
+		<div class='money-icons'>
+			<div class='expense-header'>
+				<span class="title"><abbr title=""> <h3><small>Add amount</small></h3></abbr></span>
+				<span class="subtitle input-sm" id="display-amount"><small></small></span>		
+			</div>
+			<span id="reset-money" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>		
+			<% @amount_list.each_with_index do |amount,index|%>
+				<span id="amount" class="amount btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true">		
+				<%=amount.amount%></span></span>
+			<% end %>
+			<button  type="button" id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 		</div>
-
-		<span id="reset-money" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>
-		<% @amount_list.each_with_index do |amount,index|%>
-			<span id="amount" class="amount btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true">		
-			<%=amount.amount%></span></span>
-		<% end %>
-
-		<button  type="button" id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+		
 
 		<%=f.datetime_select(:date )%>
 		<div class='expense-header'>

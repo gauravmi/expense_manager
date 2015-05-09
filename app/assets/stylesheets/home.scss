@@ -1,16 +1,16 @@
 .navbar-header{
 	width: 200px;
-	margin-top: 20px;
+	margin-top: 15px;
 	display: table;
+
 	.l{
 		background: none !important;
-		
+		display: table-row;
 	}
 	.navbar-text{
 		margin: 5px !important;
 	}
-	.label{
-		
+	.label{		
 		font-color: white !important;
 	}
 }
@@ -74,4 +74,11 @@
 #reset-money,#reset-category{
 	background-color: #adadad;
 	border-color: #adadad;
+}
+
+table{
+	td{
+		padding-left: 5px;
+		cursor: pointer;
+	}
 }

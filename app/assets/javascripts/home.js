@@ -68,6 +68,11 @@ var Expense = {
 		})
 		return date[0].value+'-'+date[1].value+'-'+date[2].value;
 	},
+	bindBudgetIcon: function(){
+		$('#budget').click(function(){
+			alert("hello")
+		});
+	},
 	bindExpenseForm: function(){
 		var self = this;
 		$('#main-expense-form').submit(function(event){
@@ -97,5 +102,6 @@ $(document).ready(function(){
 	Expense.resetMoney();
 	Expense.bindMoneyIcon();
 	Expense.bindExpenseForm();
+	Expense.bindBudgetIcon();
 	$(".etooltip").tooltip({placement: "bottom"});
 })
