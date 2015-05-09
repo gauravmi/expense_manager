@@ -2,7 +2,6 @@ var Expense = {
 	totalExpense: 0,
 	category: "",
 	money_access_count: {},
-	category_access_count: {},
 	resetm: function(){
 		$('.amount').removeClass('btn-info');
 		this.totalExpense = 0;
@@ -12,6 +11,7 @@ var Expense = {
 		var self = this;
 		$('#reset-money').click(function(){
 			self.resetm();
+			$('.badge').remove();
 		})
 	},
 	resetc: function(){
@@ -41,7 +41,7 @@ var Expense = {
 				}
 			}
 			self.totalExpense = self.totalExpense+parseInt($(event.target).text());
-			key = $(event.target).text();
+			key = $(event.target).text().trim();
 			if(self.money_access_count[key]){
 				self.money_access_count[key] = parseInt(self.money_access_count[key])+1;
 			}
@@ -56,13 +56,7 @@ var Expense = {
 		$('.category').click(function(event){
 			$('.category').removeClass('btn-info');
 			$(event.target).closest('.btn').addClass('btn-info');
-			self.category = $(event.target).text();
-			if(self.category_access_count[key]){
-				self.category_access_count[key] = parseInt(self.category_access_count[key])+1;
-			}
-			else{
-				self.category_access_count[key]=1;	
-			}
+			self.category = $(event.target).closest('.btn').data('original-title');
 			$('#display-category').text(self.category);
 		});
 	},
@@ -82,12 +76,12 @@ var Expense = {
 			postData['expense']['expense']= self.totalExpense;
 			postData['expense']['sub_cat_id']= self.category;
 			postData['expense']['count']= self.money_access_count;
-			postData['expense']['date']= self.getDate($(event.target).serializeArray());
-			postData['category_access']= self.category_access_count;
+			postData['expense']['date']= self.getDate($(event.target).serializeArray());	
 
 			$.post("/expense", postData, function(data,status){
 				self.resetm();
 				self.resetc();
+				$('.badge').remove();
 				if(status=="success"){$('.text-success').text("Expense submitted successfully.");}
 				setTimeout(function(){
 					$('.text-success').text("");

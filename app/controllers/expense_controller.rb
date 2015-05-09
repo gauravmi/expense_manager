@@ -5,8 +5,12 @@ class ExpenseController < ApplicationController
   def create
   	@expense = Expense.new(expense_params)
     frequently_accessed_numbers = params[:expense][:count]
+    sub_category_id = params[:expense][:sub_cat_id]
+    
   	if @expense.save
-      frequently_accessed_numbers.keys.each{|k| Amount.find_by_amount(k).update_attributes({count: frequently_accessed_numbers[k]})}
+      frequently_accessed_numbers.keys.each{|k| Amount.find_by_amount(k).update_attributes({count: frequently_accessed_numbers[k]})}      
+      sub_cat = SubCategory.find_by_name(sub_category_id)
+      sub_cat.update_attributes({:count=>sub_cat.id+1})
   		respond_to do |format|
       		format.json { render json: @expense, status: :created}
   		end
