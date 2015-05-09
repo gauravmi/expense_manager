@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'expense/new'
+
   get 'login/new'
   # post 'login#validate'
   root 'login#new'
