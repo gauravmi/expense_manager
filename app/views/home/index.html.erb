@@ -4,6 +4,7 @@
   <title></title>
 </head>
 <body>
+<i class="fa fa-bed"></i>
 <%= bootstrap_form_for(:expense, url: expense_index_path, method: 'Post',:html=> {:id => 'main-expense-form'}) do |f| %>
 	<p class="text-success"></p>
 	<div class='expense-header'>
@@ -24,11 +25,12 @@
 		<span class="title"><abbr title=""> <h3><small>Select Category</small></h3></abbr></span>
 		<span class="subtitle input-sm" id="display-category"><small></small></span>
 	</div>
-	
-	
+		
 	<span id="reset-category" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>
 	<% @category_list.each_with_index do |category,index|%>
-		<span id="category#{index}" class="category btn btn-default"><span class="glyphicon" aria-hidden="true"><%=category.name%></span></span>
+		<span data-original-title="<%=category.name%>" class="etooltip category btn btn-default">		
+			<span aria-hidden="true" class="<%=category.icon%> input-md"></span>
+		</span>
 	<% end %>
 
 	<button type="button" id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>

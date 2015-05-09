@@ -103,4 +103,5 @@ $(document).ready(function(){
 	Expense.resetMoney();
 	Expense.bindMoneyIcon();
 	Expense.bindExpenseForm();
+	$(".etooltip").tooltip({placement: "bottom"});
 })

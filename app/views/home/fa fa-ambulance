@@ -1,0 +1,42 @@
+fa fa-ambulance
+fa fa-heart
+
+fa fa-plane
+fa-ship
+fa-train
+fa-bus
+fa-motorcycle
+fa-taxi
+fa-wrench
+fa-wifi
+fa-university
+fa-birthday-cake
+fa-child
+fa-coffee
+
+fa-camera
+fa-cart-arrow-down
+fa-diamond
+fa-bed
+fa-binoculars
+fa-book
+fa-briefcase
+
+insert into sub_categories(id,icon,name,main_cat_id,user_id,created_at,updated_at) values(1,'fa-coffee','coffee',1,1,now(),now());
+insert into sub_categories values(2,'fa fa-ambulance', 'Ambulance',1,1,now(),now());
+
+insert into sub_categories values(3,'fa fa-heart','GirlFriend/Freinds',2,1,now(),now());
+insert into sub_categories values(4,'Restaurants',2,1,now(),now());
+
+insert into sub_categories values(5,'fa fa-plane', 'Plane Travel',3,1,now(),now());
+insert into sub_categories values(6,'fa-ship', 'Travel',3,1,now(),now());
+
+insert into sub_categories values(7,'fa-train', 'Train',4,1,now(),now());
+insert into sub_categories values(8,'fa-motorcycle', 'Motorcycle',4,1,now(),now());
+
+insert into sub_categories values(9,'fa-taxi', 'Taxi',4,1,now(),now());
+insert into sub_categories values(10,'fa-birthday-cake', 'party',4,1,now(),now());
+
+insert into sub_categories values(11,'fa-book', 'Books',5,1,now(),now());
+insert into sub_categories values(12,'fa-briefcase', 'office',5,1,now(),now());
+insert into sub_categories values(13,'fa-binoculars', 'travel',5,1,now(),now());
