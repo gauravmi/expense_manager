@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
-  get  'expense/new'
+  post 'expense/new'
+  get 'expense/list_all' => 'expense#list_all'
   root 'home#index'
   get  'login/new'
   post 'login/create' => 'login#create'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   get 'home/index' => 'home#index'
-
-  # Example of regular route:
   post 'home/create_amount' => 'home#create_amount'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

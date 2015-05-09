@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= render :partial=>'home/header'%>
+<% if current_page?(login_new_path)|| current_page?(root_path)%>
+    <%= render :partial => 'login/login_layout' %>
+<% else %>
+    <%= render :partial => 'home/header' %>
+<% end %>
 <%= yield %>
 </body>
 </html>

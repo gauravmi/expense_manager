@@ -2,7 +2,7 @@ class ExpenseController < ApplicationController
   def new
   end
 
-  def list
-
+  def list_all
+    expenses = Expense.all
   end
 end
