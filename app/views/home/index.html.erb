@@ -5,14 +5,7 @@
 </head>
 <body>
 <%= bootstrap_form_for(:expense, url: expense_index_path, method: 'Post',:html=> {:id => 'main-expense-form'}) do |f| %>
-	<% f.hidden_field :expense %>
-	<% f.hidden_field :date %>
-	<% f.hidden_field :sub_cat_id %>
-	<% f.hidden_field :user_id %>
-	<input name="expense[expense]" type="hidden" value="">
-	<input name="expense[date]" type="hidden" value="">
-	<input name="expense[sub_cat_id]" type="hidden" value="">
-	<input name="expense[user_id]" type="hidden" value="">
+	<p class="text-success"></p>
 	<div class='expense-header'>
 		<span class="title"><abbr title=""> <h3><small>Add amount</small></h3></abbr></span>
 		<span class="subtitle input-sm" id="display-amount"><small></small></span>		
@@ -20,7 +13,8 @@
 
 	<span id="reset-money" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>
 	<% @amount_list.each_with_index do |amount,index|%>
-		<span id="amount" class="amount btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"><%=amount.amount%></span></span>
+		<span id="amount" class="amount btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true">		
+		<%=amount.amount%></span></span>
 	<% end %>
 
 	<button  type="button" id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>

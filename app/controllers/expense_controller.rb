@@ -3,12 +3,14 @@ class ExpenseController < ApplicationController
   end
   
   def create
-	@expense = Expense.new(expense_params)
-	if @expense.save
-		respond_to do |format|
-    		format.json { render json: @expense, status: :created}
-		end
-	end
+  	@expense = Expense.new(expense_params)
+    frequently_accessed_numbers = params[:expense][:count]
+  	if @expense.save
+      frequently_accessed_numbers.keys.each{|k| Amount.find_by_amount(k).update_attributes({count: frequently_accessed_numbers[k]})}
+  		respond_to do |format|
+      		format.json { render json: @expense, status: :created}
+  		end
+  	end
   end
   
   def list_all

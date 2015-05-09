@@ -2,8 +2,8 @@ class HomeController < ApplicationController
 	def index
 		@amount = Amount.new
 		@sub_category = SubCategory.new
-		@amount_list = Amount.all
-		@category_list = SubCategory.all
+		@amount_list = Amount.order('amount ASC').all
+		@category_list = SubCategory.order('count DESC').all
 		@expense = Expense.new
 	end
 	
