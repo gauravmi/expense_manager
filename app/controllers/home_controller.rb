@@ -2,6 +2,8 @@ class HomeController < ApplicationController
 	def index
 		@amount = Amount.new
 		@sub_category = SubCategory.new
+		@amount_list = Amount.all
+		@category_list = SubCategory.all
 	end
 	
 	def create_amount

@@ -4,15 +4,23 @@
 	<title></title>
 </head>
 <body>
+<%= form_for(:expense, url: amounts_path) do |f| %>
+	<div><abbr title=""> <h3><small>Add amount</small></h3></abbr></div>
+	<% @amount_list.each_with_index do |amount,index|%>
+		<button id="amount#{index}" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"><%=amount.amount%></span></button>
+	<% end %>
 
-select amount 
-<button id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-<%= render :partial=>'add_amount_form'%>
-<br>
+	<button id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	<%= render :partial=>'add_amount_form'%>
 
-select category <button id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-<%= render :partial=>'add_sub_category_form'%>
-<br>
-graph 
+	<div><abbr title=""> <h3><small>Select Category</small></h3></abbr></div>
+	<% @category_list.each_with_index do |category,index|%>
+		<button id="category#{index}" class="btn btn-default"><span class="glyphicon" aria-hidden="true"><%=category.name%></span></button>
+	<% end %>
+
+	<button id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+	<%= render :partial=>'add_sub_category_form'%>
+	<br>
+<% end %>
 </body>
 </html>

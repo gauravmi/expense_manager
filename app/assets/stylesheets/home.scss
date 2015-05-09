@@ -1,8 +1,12 @@
-.glyphicon.glyphicon-plus {
-    font-size: 30px;
-    font-weight: bold;
+.btn-default{
+	margin-bottom: 5px;
 }
-
+#add-money-button{
+	font-weight: bold !important;
+}
 .btn{
 	outline:none !important;
+}
+#add-money-button span, #add-category span{
+	font-weight: bold !important;
 }
