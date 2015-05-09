@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_filter :require_login, :except => [:new,:create]
   helper_method :current_user
 
+  def current_user
+    @current_user ||= session[:user_id]
+  end
+  
   private
   def require_login
     unless current_user
@@ -12,7 +16,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-    @current_user ||= session[:user_id]
-  end
+
 end

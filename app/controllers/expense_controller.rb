@@ -6,8 +6,7 @@ class ExpenseController < ApplicationController
 	@expense = Expense.new(expense_params)
 	if @expense.save
 		respond_to do |format|
-			format.html { render action: 'index', notice: 'Expense submitted successfully.' }
-    		format.json { render json: @expense, status: :created, location: "index" }
+    		format.json { render json: @expense, status: :created}
 		end
 	end
   end
@@ -18,6 +17,6 @@ class ExpenseController < ApplicationController
 
   private
   def expense_params
-  	params.require(:expense).permit(:expense,:date,:sub_cat_id,:user_id)
+  	params.require(:expense).merge({:user_id=>current_user}).permit(:expense,:date,:sub_cat_id,:user_id)
   end
 end

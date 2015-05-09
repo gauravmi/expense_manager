@@ -13,7 +13,7 @@
 	<input name="expense[date]" type="hidden" value="">
 	<input name="expense[sub_cat_id]" type="hidden" value="">
 	<input name="expense[user_id]" type="hidden" value="">
-	<div>
+	<div class='expense-header'>
 		<span class="title"><abbr title=""> <h3><small>Add amount</small></h3></abbr></span>
 		<span class="subtitle input-sm" id="display-amount"><small></small></span>		
 	</div>
@@ -26,7 +26,7 @@
 	<button  type="button" id='add-money-button' class="btn btn-default" data-toggle="modal" data-target="#add-money-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
 	<%=f.datetime_select(:date )%>
-	<div>
+	<div class='expense-header'>
 		<span class="title"><abbr title=""> <h3><small>Select Category</small></h3></abbr></span>
 		<span class="subtitle input-sm" id="display-category"><small></small></span>
 	</div>

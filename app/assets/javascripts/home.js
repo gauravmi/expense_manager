@@ -33,10 +33,26 @@ var Expense = {
 			$('#display-category').text(self.category);
 		});
 	},
+	getDate: function(array){
+		var input = 'expense[date('
+		date = []
+		array.filter(function(ar){ 
+			if(ar.name.substring(0, input.length) === input){date.push(ar)}
+		})
+		return date[0].value+'-'+date[1].value+'-'+date[2].value;
+	},
 	bindExpenseForm: function(){
+		var self = this;
 		$('#main-expense-form').submit(function(event){
 			event.preventDefault();
-			event
+			postData = {expense: {}};
+			postData['expense']['expense']= self.totalExpense;
+			postData['expense']['sub_cat_id']= self.category;
+			postData['expense']['date']= self.getDate($(event.target).serializeArray());
+
+			$.post("/expense", postData, function(data,status){
+				console.log(data,status);
+			})
 		})
 	}
 }
