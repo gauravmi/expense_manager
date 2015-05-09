@@ -1,3 +1,9 @@
+.title h3{
+	display: inline;	
+}
+.subtitle{
+	display: inline;		
+}
 .btn-default{
 	margin-bottom: 5px;
 }
@@ -10,8 +16,12 @@
 #add-money-button span, #add-category span{
 	font-weight: bold !important;
 }
-#main-submit-expense {
+#main-expense-submit-button {
 	width: 503px !important;
   	margin-top: 50px !important;
   	margin-bottom: 50px !important;	
+}
+#reset-money,#reset-category{
+	background-color: #adadad;
+	border-color: #adadad;
 }

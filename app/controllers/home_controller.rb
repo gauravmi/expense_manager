@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 		@sub_category = SubCategory.new
 		@amount_list = Amount.all
 		@category_list = SubCategory.all
+		@expense = Expense.new
 	end
 	
 	def create_amount
