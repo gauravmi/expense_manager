@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
 </head>
 <body>
 <%= bootstrap_form_for(:expense, url: expense_index_path, method: 'Post',:html=> {:id => 'main-expense-form'}) do |f| %>
@@ -37,7 +37,31 @@
 	<%= f.submit 'Submit Expense', id: 'main-expense-submit-button', class: 'btn btn-primary center-block' %>
 <% end %>
 
-<%= render :partial=>'add_amount_form'%>
-<%= render :partial=>'add_sub_category_form'%>
+<%= render :partial => 'add_amount_form' %>
+<%= render :partial => 'add_sub_category_form' %>
+<div id="chart"></div>
+<div id="sub-cat-list" data-list="<%=@sub_cat%>"></div>
+
+<script>
+    var chart = c3.generate({
+        data: {
+            columns: $("#sub-cat-list").data('list'),
+            type: 'donut',
+            onclick: function (d, i) {
+                console.log("onclick", d, i);
+            },
+            onmouseover: function (d, i) {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: function (d, i) {
+                console.log("onmouseout", d, i);
+            }
+        },
+        donut: {
+            title: "Category wise expense"
+        }
+    });
+
+</script>
 </body>
 </html>

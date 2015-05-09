@@ -1,21 +1,14 @@
 class HomeController < ApplicationController
-	def index
+
+  def index
 		@amount = Amount.new
 		@sub_category = SubCategory.new
 		@amount_list = Amount.order('amount ASC').all
 		@category_list = SubCategory.order('count DESC').all
 		@expense = Expense.new
+    @sub_cat = SubCategory.fetch_all
 	end
-	
-	def create_amount
-		@amount = Amount.new(amount_params)
-		if @amount.save
-			respond_to do |format|
-				format.html { render action: 'index', notice: 'amount added successfully.' }
-	    		format.json { render json: @amount, status: :created, location: "index" }
-    		end
-  		end
-	end
+
 	def create_sub_category
 		@sub_category = SubCategory.new(subcategory_params)
 		if @sub_category.save
@@ -26,12 +19,23 @@ class HomeController < ApplicationController
   		end
 	end
 
-	private
-	def subcategory_params
-		params.require(:sub_category).permit(:name,:icon,:main_cat_id,:user_id)
-	end
+  def create_amount
+    @amount = Amount.new(amount_params)
+    if @amount.save
+      respond_to do |format|
+        format.html { render action: 'index', notice: 'amount added successfully.' }
+        format.json { render json: @amount, status: :created, location: "index" }
+      end
+    end
+  end
 
-  	def amount_params
-  		params.require(:amount).permit(:amount)    	
-  	end
+  private
+  def subcategory_params
+    params.require(:sub_category).permit(:name, :icon, :main_cat_id, :user_id)
+  end
+
+  def amount_params
+    params.require(:amount).permit(:amount)
+  end
+
 end

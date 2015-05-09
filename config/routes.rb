@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'subcategory/new'
+
   get 'report/new'
 
   post 'expense/new'
