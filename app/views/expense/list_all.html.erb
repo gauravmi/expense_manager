@@ -1,3 +1,8 @@
-<div>
-
-</div>
+<table class="table-hover">
+  <% @per_day_expenses_list.each { |expense| %>
+      <tr>
+        <td><%= expense[:expense_date] %></td>
+        <td><%= expense[:expense_for_the_day] %></td>
+      </tr>
+  <% } %>
+</table>

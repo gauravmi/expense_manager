@@ -3,8 +3,7 @@ class ExpenseController < ApplicationController
   end
 
   def list_all
-    expenses = Expense.all
-    p expenses
+    @per_day_expenses_list = Expense.list_all
   end
 
 end
