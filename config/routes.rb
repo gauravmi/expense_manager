@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'report/new'
+
   post 'expense/new'
   get 'expense/list_all' => 'expense#list_all'
   root 'home#index'
