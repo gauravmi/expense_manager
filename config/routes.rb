@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   post 'home/create_amount' => 'home#create_amount', :as=>:amounts
-  post 'home/subcategory/create'=>'home#create_amount', :as=>:sub_categories
+  post 'home/subcategory/create'=>'home#create_sub_category', :as=>:sub_categories
 
 
 

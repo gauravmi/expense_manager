@@ -13,9 +13,22 @@ class HomeController < ApplicationController
     		end
   		end
 	end
+	def create_sub_category
+		@sub_category = SubCategory.new(subcategory_params)
+		if @sub_category.save
+			respond_to do |format|
+				format.html { render action: 'index', notice: 'Sub category added successfully.' }
+	    		format.json { render json: @sub_category, status: :created, location: "index" }
+    		end
+  		end
+	end
 
 	private
+	def subcategory_params
+		params.require(:sub_category).permit(:name,:icon,:main_cat_id,:user_id)
+	end
+
   	def amount_params
-    	params.require(:amount).permit(:amount)
+  		params.require(:amount).permit(:amount)    	
   	end
 end
