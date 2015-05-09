@@ -3,9 +3,19 @@ Rails.application.routes.draw do
   get 'expense/list_all' => 'expense#list_all'
   root 'home#index'
   get  'login/new'
-  post 'login/create' => 'login#create'
   get 'home/index' => 'home#index'
   post 'home/create_amount' => 'home#create_amount'
+
+  post 'login/create' => 'login#create'
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"  
+
+  # Example of regular route:
+  post 'home/create_amount' => 'home#create_amount', :as=>:amounts
+  post 'home/subcategory/create'=>'home#create_amount', :as=>:sub_categories
+
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

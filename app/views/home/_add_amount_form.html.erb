@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel">Add new amount</h4>
       </div>
       <div class="modal-body">
-    		<%= form_for(:amount, url: home_create_amount_path) do |f| %>
+    		<%= form_for(:amount, url: amounts_path) do |f| %>
               <p>
                 <%= f.label "enter new amount" %>
                 <%= f.text_field :amount, class: 'form-control' %>

@@ -4,24 +4,14 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add new amount</h4>
-      </div>
+      </div>      
       <div class="modal-body">
-    		<%= form_for(:amount, url: home_create_amount_path) do |f| %>
-              <p>
-                <%= f.label "select main category" %>
-                <%= f.text_field :name, class: 'form-control' %>
-              </p>
-              <p>
-                <%= f.label "Sub Category name" %>
-                <%= f.text_field :name, class: 'form-control' %>
-              </p>
-              <p>
-                <%= f.label "add icon" %>
-                <%= f.text_field :name, class: 'form-control' %>
-              </p>
+    		<%= bootstrap_form_for(@sub_category) do |f| %>
+          <%= f.select :main_cat_id, [[1, "Apple"], [2, "Grape"]], { label: "Choose your favorite fruit:" }, { class: "selectpicker" } %>
+          <%= f.text_field :name %>
 
-              <%= f.submit "Submit", class: "btn btn-primary" %>
-          <% end %>
+          <%= f.submit "Log In" %>
+        <% end %>
       </div>
     </div>
   </div>
