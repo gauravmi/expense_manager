@@ -8,10 +8,10 @@
       <div class="modal-body">
     		<%= form_for(:amount, url: amounts_path) do |f| %>
               <p>
-                <%= f.label "enter new amount" %>
+                <%= f.label 'enter new amount' %>
                 <%= f.text_field :amount, class: 'form-control' %>
               </p>
-              <%= f.submit "Submit", class: "btn btn-primary" %>
+              <%= f.submit 'Submit', class: 'btn btn-primary' %>
           <% end %>
       </div>
     </div>

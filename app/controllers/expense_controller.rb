@@ -4,5 +4,7 @@ class ExpenseController < ApplicationController
 
   def list_all
     expenses = Expense.all
+    p expenses
   end
+
 end
