@@ -4,7 +4,7 @@
 	<title></title>
 </head>
 <body>
-<%= form_for(:expense, url: amounts_path) do |f| %>
+<%= form_for(:expense, url: expense_index_path, method: 'Post') do |f| %>
 	<div><abbr title=""> <h3><small>Add amount</small></h3></abbr></div>
 	<% @amount_list.each_with_index do |amount,index|%>
 		<button id="amount#{index}" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"><%=amount.amount%></span></button>
@@ -21,6 +21,7 @@
 	<button id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 	<%= render :partial=>'add_sub_category_form'%>
 	<br>
+	<%= f.submit 'Submit Expense', id: 'main-submit-expense', class: 'btn btn-primary center-block' %>
 <% end %>
 </body>
 </html>
