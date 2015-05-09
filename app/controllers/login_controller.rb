@@ -5,6 +5,7 @@ class LoginController < ApplicationController
   def create
     user = validate params[:login][:password], params[:login][:username]
     if user
+      session[:user_id] = user.id
       respond_to do |format|
         format.html { redirect_to home_index_path, :notice => 'logged in successfully' }
       end

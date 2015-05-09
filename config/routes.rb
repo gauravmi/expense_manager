@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   get 'expense/new'
-
-  get 'login/new'
-  # post 'login#validate'
-  root 'login#new'
+  root 'home#index'
+  get 'login/new'  
   post 'login/create' => 'login#create'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
