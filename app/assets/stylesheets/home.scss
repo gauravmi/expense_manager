@@ -1,3 +1,36 @@
+.navbar-header{
+	width: 200px;
+	margin-top: 20px;
+	display: table;
+	.l{
+		background: none !important;
+		
+	}
+	.navbar-text{
+		margin: 5px !important;
+	}
+	.label{
+		
+		font-color: white !important;
+	}
+}
+.navbar{
+	border-radius: 0 !important;
+}
+.progress{
+	position: relative;
+	top: 50px;
+	right: -16px;
+	width: 100px;
+	border-color: black !important;	
+}
+.navbar-brand{
+	font-family: fantasy;
+	font-size: 35px;
+	font-weight: bold;
+	margin-top: 10px;	
+	margin-left: 30px !important;
+}
 .form-group{
 	margin-top: 15px;
 }
