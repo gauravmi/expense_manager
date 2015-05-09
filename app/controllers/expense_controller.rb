@@ -3,6 +3,6 @@ class ExpenseController < ApplicationController
   end
 
   def list
-    
+
   end
 end
