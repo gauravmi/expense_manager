@@ -20,3 +20,4 @@
 .idea/workspace.xml
 *.iml
 .idea/*.iml
+.idea/expense_manager.iml

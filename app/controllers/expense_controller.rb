@@ -6,7 +6,7 @@ class ExpenseController < ApplicationController
   end
   
   def list_all
-    @per_day_expenses_list = Expense.list_all
+    @per_day_expenses_grouped_by_month = Expense.list_all
   end
 
 end
