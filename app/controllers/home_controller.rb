@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
   def index
 		@amount = Amount.new
+    @budget = Budget.new
 		@sub_category = SubCategory.new
 		@amount_list = Amount.order('amount ASC').all
 		@category_list = SubCategory.order('count DESC').all
@@ -18,7 +19,16 @@ class HomeController < ApplicationController
     		end
   		end
 	end
-
+  
+  def create_budget
+    @budget = Budget.new(budget_params)
+    if @budget.save
+      respond_to do |format|        
+        format.json { render json: @budget, status: :created, location: "index" }
+      end
+    end
+  end
+  
   def create_amount
     @amount = Amount.new(amount_params)
     if @amount.save
@@ -30,6 +40,9 @@ class HomeController < ApplicationController
   end
 
   private
+  def budget_params
+    params.require(:budget).merge({:user_id=>current_user, :date=>DateTime.now.to_date.to_s}).permit(:amount,:date, :user_id)
+  end
   def subcategory_params
     params.require(:sub_category).permit(:name, :icon, :main_cat_id, :user_id)
   end

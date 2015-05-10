@@ -1,3 +1,28 @@
+.push-expense-down{
+	padding-top: 50px;
+	height: 350px;
+}
+.white{
+	color: white !important;
+	  background: #777777;
+	  font-weight: bold;
+	  padding-top: 0px;
+	  padding-bottom: 3px;
+	  padding-left: 5px;
+	  padding-right: 5px;
+	  border-radius: 2px;
+	  border: 1px solid #777777;
+}
+td{
+	span{
+		font-weight: normal !important;
+	}	
+}
+.nav.navbar-nav{
+	margin-top: 9px;
+	margin-left: 17px;	
+}
+  
 .navbar-header{
 	width: 200px;
 	margin-top: 15px;

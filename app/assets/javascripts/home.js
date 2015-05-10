@@ -69,8 +69,22 @@ var Expense = {
 		return date[0].value+'-'+date[1].value+'-'+date[2].value;
 	},
 	bindBudgetIcon: function(){
-		$('#budget').click(function(){
-			alert("hello")
+		var self = this;
+		$('#budget-submit-button').click(function(event){
+			
+			$('#half-expense-form').hide();
+			postData = {budget: {}};
+			postData['budget']['amount']= self.totalExpense;
+			$.post("/budget", postData, function(data,status){				
+				self.resetm()
+				$('.badge').remove();
+				if(status=="success"){$('.text-success').text("Income added successfully.");}
+				setTimeout(function(){
+					$('.text-success').text("");
+					$('.collapse').collapse('hide');
+					$('#half-expense-form').show();
+				},3000)
+			})
 		});
 	},
 	bindExpenseForm: function(){
