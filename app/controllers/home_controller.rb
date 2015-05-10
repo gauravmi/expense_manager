@@ -1,3 +1,4 @@
+require 'date'
 class HomeController < ApplicationController
 
   def index
@@ -42,7 +43,7 @@ class HomeController < ApplicationController
 
   private
   def budget_params
-    params.require(:budget).merge({:user_id=>current_user, :date=>DateTime.now.to_date.to_s}).permit(:amount,:date, :user_id)
+    params.require(:budget).merge({:user_id=>current_user, :date=>Date.today}).permit(:amount,:date, :user_id)
   end
   def subcategory_params
     params.require(:sub_category).permit(:name, :icon, :main_cat_id, :user_id)
