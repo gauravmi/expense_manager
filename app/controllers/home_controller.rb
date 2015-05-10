@@ -3,18 +3,19 @@ class HomeController < ApplicationController
   def index
 		@amount = Amount.new
     @budget = Budget.new
-		@sub_category = SubCategory.new
-		@amount_list = Amount.order('amount ASC').all
-		@category_list = SubCategory.order('count DESC').all
+		@sub_category = SubCategory.new    
+    
+		@amount_list = (Amount.order('amount ASC').all || [])
+		@category_list = (SubCategory.order('count DESC').all || [])
 		@expense = Expense.new
-    @sub_cat = SubCategory.fetch_all
+    @sub_cat = (SubCategory.fetch_all || [])
 	end
 
 	def create_sub_category
 		@sub_category = SubCategory.new(subcategory_params)
 		if @sub_category.save
 			respond_to do |format|
-				format.html { render action: 'index', notice: 'Sub category added successfully.' }
+				format.html { redirect_to action: :index }
 	    		format.json { render json: @sub_category, status: :created, location: "index" }
     		end
   		end
@@ -33,7 +34,7 @@ class HomeController < ApplicationController
     @amount = Amount.new(amount_params)
     if @amount.save
       respond_to do |format|
-        format.html { render action: 'index', notice: 'amount added successfully.' }
+        format.html { redirect_to action: :index }
         format.json { render json: @amount, status: :created, location: "index" }
       end
     end

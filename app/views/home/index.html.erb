@@ -13,7 +13,7 @@
 				<span class="subtitle input-sm" id="display-amount"><small></small></span>		
 			</div>
 			<span id="reset-money" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>
-			<% @amount_list.each_with_index do |amount,index|%>
+			<% @amount_list.each do |amount|%>
 				<span id="amount" class="amount btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true">		
 				<%=amount.amount%></span></span>
 			<% end %>
@@ -33,9 +33,9 @@
 			</div>
 				
 			<span id="reset-category" class="btn btn-default"><span class="glyphicon" aria-hidden="true">RESET</span></span>
-			<% @category_list.each_with_index do |category,index|%>
+			<% @category_list.each do |category|%>
 				<span data-original-title="<%=category.name%>" class="etooltip category btn btn-default">		
-					<span aria-hidden="true" class="<%=category.icon%> input-md"></span>
+					<span aria-hidden="true" class="<%=category.icon%> input-md"><%=category.name if category.icon.nil?%></span>
 				</span>
 			<% end %>
 
