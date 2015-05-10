@@ -12,12 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require d3
-//= require c3
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require d3
 //= require c3
 //= require_tree .
-
