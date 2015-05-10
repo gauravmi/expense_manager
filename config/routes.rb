@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   post 'home/create_amount' => 'home#create_amount'
   get 'report/view' => 'report#view'
+  post 'report/view' => 'report#apply'
   post 'login/create' => 'login#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

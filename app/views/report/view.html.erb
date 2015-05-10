@@ -1,34 +1,47 @@
 <div class="report-filter container-fluid">
-  <div class="form-group col-xs-6">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>Grocery</label>
-  </div>
-  <div class="form-group col-xs-4">
-    <input type="radio" name="optradio">
-    <label>Savings</label>
-  </div>
-  <div class="form-group col-xs-2">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>DP</label>
-  </div>
-  <div class="form-group col-xs-6">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>Offerings</label>
-  </div>
-  <div class="form-group col-xs-4">
-    <input type="radio" name="optradio">
-    <label>Expenses</label>
-  </div>
-  <div class="form-group col-xs-6">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>Restaurants</label>
-  </div>
-  <div class="form-group col-xs-8">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>Charities</label>
-  </div>
-  <div class="form-group col-xs-6">
-    <input id="nome" name="Nome" type="checkbox" value="Nome" checked/>
-    <label>Rent</label>
-  </div>
+  <%= form_for(:report, :url => report_view_path, :method => 'POST') do |f| %>
+      <div class="form-group col-xs-6">
+        <%= check_box_tag :food_check %>
+        <label>Food</label>
+      </div>
+      <div class="form-group col-xs-4">
+        <%= radio_button_tag 'mode', 'savings' %>
+        <label>Savings</label>
+      </div>
+      <input type="text" placeholder="click to show datepicker" id="dp1" class="form-group col-xs-2 hasDatepicker">
+      <div class="form-group col-xs-6">
+        <%= check_box_tag :giving_check %>
+        <label>Giving</label>
+      </div>
+      <div class="form-group col-xs-4">
+        <%= radio_button_tag 'mode', 'expenses' %>
+        <label>Expenses</label>
+      </div>
+      <div class="form-group col-xs-6">
+        <%= check_box_tag :shelter_check %>
+        <label>Shelter</label>
+      </div>
+      <div class="form-group col-xs-8">
+        <%= check_box_tag :utilities_check %>
+        <label>Utilities</label>
+      </div>
+      <div class="form-group col-xs-6  ">
+        <%= check_box_tag :transportation_check %>
+        <label>Transportation</label>
+      </div>
+      <div class="form-group col-xs-6">
+        <%= f.submit "Apply", class: "apply-button" %>
+      </div>
+  <% end %>
+  <div id="chart"></div>
 </div>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#dp1").datepicker({
+              format: "mm-yyyy",
+              showClear: true,
+              viewMode: "months",
+              minViewMode: "months"
+          });
+      });
+  </script>
