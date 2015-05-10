@@ -11,6 +11,7 @@ var Expense = {
 		var self = this;
 		$('#reset-money').click(function(){
 			self.resetm();
+			$('.badge').closest('.amount').data('counter',0);
 			$('.badge').remove();
 		})
 	},
@@ -26,7 +27,7 @@ var Expense = {
 	},
 	bindMoneyIcon: function(){
 		var self = this;
-		$('.amount').data('counter', 0).click(function(event){			
+		$('.amount').data('counter', 0).click(function(event){
 			var counter = $(this).data('counter');
         	$(this).data('counter', counter + 1);        	
 			$(event.target).closest('.btn').addClass('btn-info');

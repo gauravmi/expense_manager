@@ -1,17 +1,48 @@
+.charttitle{
+  font-size: 12px;
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;  
+}
+.breadcrumb{
+	margin-bottom: 0px !important;
+}
+.margintop{
+	margin-top: 30px;
+}
+.marginbottom{
+	margin-bottom: 100px;
+}
+.decoration{
+	border-top: 1px solid #cccccc;
+}
+#chart{		
+	background-color: #f5f5f5;
+}
+.good{
+	color: green !important;
+}
+.danger{
+	color: red !important;	
+}
+table{
+	font-size: 15px !important;
+}
 .push-expense-down{
 	padding-top: 50px;
 	height: 350px;
 }
 .white{
-	color: white !important;
-	  background: #777777;
+	  color: white !important;	  
+	  background-color: black;
 	  font-weight: bold;
 	  padding-top: 0px;
 	  padding-bottom: 3px;
 	  padding-left: 5px;
 	  padding-right: 5px;
 	  border-radius: 2px;
-	  border: 1px solid #777777;
+	  border: 1px solid black;
 }
 td{
 	span{
@@ -93,8 +124,8 @@ td{
 }
 #main-expense-submit-button {
 	width: 503px !important;
-  	margin-top: 50px !important;
-  	margin-bottom: 50px !important;	
+  	margin-top: 15px !important;
+  	margin-bottom: 15px !important;	
 }
 #reset-money,#reset-category{
 	background-color: #adadad;

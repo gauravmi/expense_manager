@@ -42,12 +42,22 @@
 			<button type="button" id='add-category' class="btn btn-default" data-toggle="modal" data-target="#add-sub-category-form"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 			
 			<br>
+			<div class='margintop decoration'></div>
 			<%= f.submit 'Submit Expense', id: 'main-expense-submit-button', class: 'btn btn-primary center-block' %>
+			<div class='marginbottom decoration'></div>
 		</div>
 	<% end %>
 
 	<%= render :partial => 'add_amount_form' %>
 	<%= render :partial => 'add_sub_category_form' %>
+	<div>
+	<ol class="breadcrumb">
+  		<li class="charttitle">Expense by category</li>
+	</ol>
+	</div>
+	<ol class="breadcrumb"></ol>
+	<ol class="breadcrumb"></ol>
+	<ol class="breadcrumb"></ol>	
 	<div id="chart"></div>
 	<div id="sub-cat-list" data-list="<%=@sub_cat%>"></div>
 </div>

@@ -1,7 +1,10 @@
 class LoginController < ApplicationController
   def new    
   end
-
+  def destroy
+    session[:user_id] = nil if session[:user_id]
+    redirect_to :controller=>:login, :action=>:new
+  end
   def create
     user = validate(params[:login][:password], params[:login][:username])    
     if user
