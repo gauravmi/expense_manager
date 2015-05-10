@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'report/new'
 
-  post 'expense/new'
+  post 'expense/new' => 'expense#create'
   get 'expense/list_all' => 'expense#list_all'
   root 'home#index'
   get  'login/new'
