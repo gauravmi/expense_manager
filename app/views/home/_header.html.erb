@@ -1,31 +1,35 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
 
-  	<a class="navbar-brand" href="#">Expomatic</a>
-  	
-  	<div class="progress pull-right">
-	  <div class="progress-bar progress-bar-success" style="width: 75%">
-	    <span class="sr-only">35% Complete (success)</span>
-	  </div>
-	</div>
-	<div class='nav navbar-nav'>
-		<li><%=link_to(:Home, root_path)%></li>
-		<li><%=link_to(:Expense, expense_list_all_path)%></li>
-		<li><%=link_to(:Reports, report_view_path)%></li>
-	</div>
-	<div class="navbar-header pull-right">
-	<table>
-		<tr>
-			<td><span class="l label label-Info">Total Income: </span></td>
-			<td><span class="label label-Info">Rs. <%=total_income%></span></td>
-			
-			<td><button class="white" type="button" data-toggle="collapse" data-target="#BudgetForm" aria-expanded="false" aria-controls="BudgetForm"><span id="budget" class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></td>
-		</tr>
-		<tr>
-			<td><span class="l label label-Info">Expense: </span></td>
-			<td><span class="label label-Info">Rs. <%=total_expense%></span></td>
-		</tr>
-	</table>
+    <a class="navbar-brand" href="#">Expomatic</a>
+
+    <div class="progress pull-right">
+      <div class="progress-bar progress-bar-success" style="width: 75%">
+        <span class="sr-only">35% Complete (success)</span>
+      </div>
+    </div>
+    <div class='nav navbar-nav'>
+      <li><%= link_to(:Home, root_path) %></li>
+      <li><%= link_to(:Expense, expense_list_all_path) %></li>
+      <li><%= link_to(:Reports, report_view_path) %></li>
+      <li><%= link_to(:Logout, logout_new_path) %></li>
+    </div>
+    <div class="navbar-header pull-right">
+      <table>
+        <tr>
+          <td><span class="l label label-Info">Total Income: </span></td>
+          <td><span class="label label-Info">Rs. <%= total_income %></span></td>
+
+          <td>
+            <button class="white" type="button" data-toggle="collapse" data-target="#BudgetForm" aria-expanded="false" aria-controls="BudgetForm">
+              <span id="budget" class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="l label label-Info">Expense: </span></td>
+          <td><span class="label label-Info">Rs. <%= total_expense %></span></td>
+        </tr>
+      </table>
     </div>
   </div>
 </nav>
