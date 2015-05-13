@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -30,6 +30,7 @@ gem 'pry'
 gem 'bootstrap_form'
 gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'puma'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
