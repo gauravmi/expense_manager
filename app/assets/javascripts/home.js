@@ -94,7 +94,7 @@ var Expense = {
 			event.preventDefault();
 			postData = {expense: {}};
 			postData['expense']['expense']= self.totalExpense;
-			postData['expense']['sub_cat_id']= self.category;
+			postData['expense']['sub_category_id']= self.category;
 			postData['expense']['count']= self.money_access_count;
 			postData['expense']['date']= self.getDate($(event.target).serializeArray());	
 

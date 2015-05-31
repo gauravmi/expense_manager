@@ -1,24 +1,24 @@
 <div class="report-filter container-fluid report_style">
     <%= form_for(:report, :url => report_view_path, :method => 'POST') do |f| %>
         <div class="form-group col-xs-6 " style="margin-bottom:0">
-          <%= f.check_box "category[food]" %>
-          <label>Food</label>
+          <%= f.check_box "category[travel]" %>
+          <label>Travel</label>
         </div>
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= f.check_box "category[:giving_check]" %>
-          <label>Giving</label>
+          <%= f.check_box "category[Motorcycle]" %>
+          <label>Motorcycle</label>
         </div>        
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= f.check_box "category[:shelter_check]" %>
-          <label>Shelter</label>
+          <%= f.check_box "category[Taxi]" %>
+          <label>Taxi</label>
         </div>
         <div class="form-group col-xs-8" style="margin-bottom:0">
-          <%= f.check_box "category[:utilities_check]" %>
-          <label>Utilities</label>
+          <%= f.check_box "category[Books]" %>
+          <label>Books</label>
         </div>
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= f.check_box "category[:transportation_check]" %>
-          <label>Transportation</label>
+          <%= f.check_box "category[office]" %>
+          <label>Office</label>
         </div>
 
         <div class="form-group col-xs-4" style="margin-bottom:0">
@@ -37,7 +37,7 @@
 <div id="chart"></div>
 <div id="chart-category" style="margin-top:20px ">
   <script>
-      var columns = <%= @month_expenses.to_json.html_safe %>;
+      var columns = <%= @graph_data.to_json.html_safe %>;
       var chart = c3.generate({
           bindto: '#chart-category',
           data: {

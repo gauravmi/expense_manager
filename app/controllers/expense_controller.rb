@@ -5,7 +5,7 @@ class ExpenseController < ApplicationController
   def create
   	@expense = Expense.new(expense_params)
     frequently_accessed_numbers = params[:expense][:count]
-    sub_category_id = params[:expense][:sub_cat_id]
+    sub_category_id = params[:expense][:sub_category_id]
     
   	if @expense.save
       frequently_accessed_numbers.keys.each{|k| Amount.find_by_amount(k).update_attributes({count: frequently_accessed_numbers[k]})}      
@@ -23,6 +23,6 @@ class ExpenseController < ApplicationController
 
   private
   def expense_params
-  	params.require(:expense).merge({:user_id=>current_user}).permit(:expense,:date,:sub_cat_id,:user_id)
+  	params.require(:expense).merge({:user_id=>current_user}).permit(:expense,:date,:sub_category_id,:user_id)
   end
 end
