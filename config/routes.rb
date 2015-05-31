@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   post 'home/create_amount' => 'home#create_amount'
   get 'report/view' => 'report#view'
-  post 'report/view' => 'report#apply'
+  post 'report/view' => 'report#view'
   post 'login/create' => 'login#create'
   post '/budget' => 'home#create_budget'
   get '/logout' => 'login#destroy'

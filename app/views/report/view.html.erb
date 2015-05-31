@@ -1,35 +1,33 @@
 <div class="report-filter container-fluid report_style">
     <%= form_for(:report, :url => report_view_path, :method => 'POST') do |f| %>
         <div class="form-group col-xs-6 " style="margin-bottom:0">
-          <%= check_box_tag :food_check %>
+          <%= f.check_box "category[food]" %>
           <label>Food</label>
         </div>
-        <div class="form-group col-xs-4" style="margin-bottom:0">
-          <%= radio_button_tag 'mode', 'savings' %>
-          <label>Savings</label>
-        </div>
-        <div> <%= f.date_select(:date) %></div>
-
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= check_box_tag :giving_check %>
+          <%= f.check_box "category[:giving_check]" %>
           <label>Giving</label>
-        </div>
-        <div class="form-group col-xs-4" style="margin-bottom:0">
-          <%= radio_button_tag 'mode', 'expenses' %>
-          <label>Expenses</label>
-        </div>
+        </div>        
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= check_box_tag :shelter_check %>
+          <%= f.check_box "category[:shelter_check]" %>
           <label>Shelter</label>
         </div>
         <div class="form-group col-xs-8" style="margin-bottom:0">
-          <%= check_box_tag :utilities_check %>
+          <%= f.check_box "category[:utilities_check]" %>
           <label>Utilities</label>
         </div>
         <div class="form-group col-xs-6" style="margin-bottom:0">
-          <%= check_box_tag :transportation_check %>
+          <%= f.check_box "category[:transportation_check]" %>
           <label>Transportation</label>
         </div>
+
+        <div class="form-group col-xs-4" style="margin-bottom:0">
+          <label>Savings</label>
+          <%= f.radio_button 'mode', 'savings' %>
+          <label>Expenses</label>
+          <%= f.radio_button 'mode', 'expenses' %>          
+        </div>
+        <div> <input type="text" name="date" class='datepicker' ></div>
         <div class="form-group col-xs-6" style="margin-bottom:0">
           <%= f.submit "Apply", class: "btn btn-primary apply-button" %>
         </div>
@@ -37,13 +35,23 @@
   </div>
 
 <div id="chart"></div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#dp1").datepicker({
-            format: "mm-yyyy",
-            showClear: true,
-            viewMode: "months",
-            minViewMode: "months"
-        });
-    });
-</script>
+<div id="chart-category" style="margin-top:20px ">
+  <script>
+      var columns = <%= @month_expenses.to_json.html_safe %>;
+      var chart = c3.generate({
+          bindto: '#chart-category',
+          data: {
+              columns: columns,
+              type: 'bar'
+          },
+          bar: {
+              width: {
+                  ratio: 0.5
+              }
+          }
+      });
+      $(document).ready(function(){
+        $('.datepicker').datepicker();
+      });
+  </script>
+</div>

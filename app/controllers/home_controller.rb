@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 		@amount_list = (Amount.order('amount ASC').all || [])
 		@category_list = (SubCategory.order('count DESC').all || [])
 		@expense = Expense.new
-    @sub_cat = (SubCategory.fetch_all || [])
+    @sub_cat = SubCategory.all
 	end
 
 	def create_sub_category
@@ -48,7 +48,6 @@ class HomeController < ApplicationController
   def subcategory_params
     params.require(:sub_category).permit(:name, :icon, :main_cat_id, :user_id)
   end
-
   def amount_params
     params.require(:amount).permit(:amount)
   end

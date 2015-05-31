@@ -7,7 +7,7 @@
       </div>      
       <div class="modal-body">
     		<%= bootstrap_form_for(:sub_category, url: '/home/subcategory/create') do |f| %>
-          <%= f.select :main_cat_id, [["Food", 1], ["Transport",2],["Utilities",3],["Shelter",4],["Clothing",5],["Medical",6],["Insurance",7],["Household Items/Supplies",8],["Personal",9],["Debt Reduction",10],["Retirement",11],["Education",12],["Savings",13],["Gifts",14],["Fun Money",15]], { label: "Choose main category" }, { class: "selectpicker" } %>
+          <%= f.select :main_category_id, [["Food", 1], ["Transport",2],["Utilities",3],["Shelter",4],["Clothing",5],["Medical",6],["Insurance",7],["Household Items/Supplies",8],["Personal",9],["Debt Reduction",10],["Retirement",11],["Education",12],["Savings",13],["Gifts",14],["Fun Money",15]], { label: "Choose main category" }, { class: "selectpicker" } %>
           <%= f.text_field :name%>
 
           <%= f.submit "Save" %>
